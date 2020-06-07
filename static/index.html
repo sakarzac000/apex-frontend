@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Tracker</title>
+
+    <script src="node_modules/node-fetch/"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main-container">
+    <div class="header">Apex Legends Stat Tracker</div>
+    <div class="searchinfo">
+      <input type="text" name="" id="platform-input" placeholder="platform">
+      <input type="text" name="" id="name-input" placeholder="name">
+      <button id='submit-btn'>Submit</button>
+    </div>
+    <script>
+          const buttonElement = document.getElementById('submit-btn');
+
+          buttonElement.addEventListener('click', function() {
+              document.querySelector('.stat-wrapper').innerHTML = "";
+              let platformInput = document.getElementById('platform-input').value;
+              let nameInput = document.getElementById('name-input').value;
+
+              function queryApis(queryplatformInput, querynameInput) {
+                  const postsPromise = fetch('https://apex-legends-tracker-api.herokuapp.com/', {
+                      method: 'GET',
+                      headers: {
+                          platform: queryplatformInput,
+                          name: querynameInput,
+                      }
+                  })
+                  .then(response => response.json())
+                  .then(data => {
+                    const statWrapper = document.querySelector('.stat-wrapper')
+                    console.log(data)
+                    
+                    let statKeys = Object.keys(data);
+                    let statValues = Object.values(data);
+
+
+                    for (let i = 0; i < Object.keys(data).length; i++) {
+                      const stat = document.createElement("div")
+                      stat.className = "stat";
+
+                      stat.innerHTML = "" + statKeys[i] + ": " + statValues[i];
+
+                      statWrapper.appendChild(stat)
+                    }
+                  
+                  })
+                  .catch(error => console.log("Error querying API: ", error))
+              }
+              
+              queryApis(platformInput, nameInput);
+
+
+          })
+    </script>
+    <div class="stats-display-wrapper">
+        <h1>Stats</h1>
+        <div id="stats-wrapper">
+          <div class="stat-wrapper"></div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>
