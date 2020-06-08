@@ -57,14 +57,14 @@
             }
           </script>
         </div>
-        <input type="text" name="" id="name-input" placeholder="name">
+        <input type="text" name="" id="name-input" placeholder=" Your Gamertag">
         <button id='submit-btn'>Submit</button>
       </div>
       <script>
             const buttonElement = document.getElementById('submit-btn');
 
             buttonElement.addEventListener('click', function() {
-                document.querySelector('.stat-wrapper').innerHTML = "";
+                document.querySelector('.stat-wrapper').innerHTML = "Loading...";
                 let platformInput = "origin"
                 if (windowsOn) {
                   platformInput = "origin";
@@ -87,6 +87,7 @@
                     })
                     .then(response => response.json())
                     .then(data => {
+                      document.querySelector('.stat-wrapper').innerHTML = "";
                       const statWrapper = document.querySelector('.stat-wrapper')
                       console.log(data)
                       

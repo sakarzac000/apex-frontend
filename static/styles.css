@@ -16,7 +16,7 @@
 }
 
 .main-page-container {
-    height: 500px;
+    height: calc(100vh - 150px);
     background-color: #484848;
 }
 
@@ -38,6 +38,10 @@
     border-radius: 10px;
     background-color: grey;
     border: 0;
+}
+
+#submit-btn:hover {
+    cursor: pointer;
 }
 
 .fab {
