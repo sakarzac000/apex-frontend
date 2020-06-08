@@ -64,12 +64,15 @@
     display: grid;
     grid-template-columns: repeat(4, 250px);
     grid-gap: 4em;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #stats-wrapper {
     text-align: center;
     display: flex;
     justify-content: center;
+    padding-bottom: 20px;
 }
 
 .stats-display-wrapper {
@@ -84,4 +87,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Montserrat', sans-serif;
 }
