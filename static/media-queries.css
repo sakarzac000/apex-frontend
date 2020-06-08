@@ -16,3 +16,14 @@
         grid-template-columns: repeat(1, 250px);
     }
 }
+
+@media (max-width: 425px) {
+    #submit-btn {
+        height: 35px;
+    }
+
+    .platform-btns {
+        display: flex;
+        flex-direction: column;
+    }
+}

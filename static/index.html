@@ -32,6 +32,7 @@
               windowsOn = true;
               xboxOn = false;
               playstationOn = false;
+              document.getElementById('name-input').value = null;
               document.querySelector('.fa-windows').style.color = "#222222";
               document.querySelector('.fa-xbox').style.color = "#777777";
               document.querySelector('.fa-playstation').style.color = "#777777";
@@ -42,6 +43,7 @@
               windowsOn = false;
               xboxOn = true;
               playstationOn = false;
+              document.getElementById('name-input').value = null;
               document.querySelector('.fa-windows').style.color = "#777777";
               document.querySelector('.fa-xbox').style.color = "#222222";
               document.querySelector('.fa-playstation').style.color = "#777777";
@@ -52,6 +54,7 @@
               windowsOn = false;
               xboxOn = false;
               playstationOn = true;
+              document.getElementById('name-input').value = null;
               document.querySelector('.fa-windows').style.color = "#777777";
               document.querySelector('.fa-xbox').style.color = "#777777";
               document.querySelector('.fa-playstation').style.color = "#222222";
@@ -117,6 +120,7 @@
                           stat.innerHTML = "" + statKeys[i] + ": " + statValues[i];
 
                           statWrapper.appendChild(stat)
+                          document.getElementById('name-input').value = null;
                         }
                       }
                     
