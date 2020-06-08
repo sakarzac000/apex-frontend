@@ -1,0 +1,18 @@
+@media (max-width: 1200px) {
+    .stat-wrapper {
+        grid-template-columns: repeat(3, 250px);
+    }
+}
+
+
+@media (max-width: 880px) {
+    .stat-wrapper {
+        grid-template-columns: repeat(2, 250px);
+    }
+}
+
+@media (max-width: 570px) {
+    .stat-wrapper {
+        grid-template-columns: repeat(1, 250px);
+    }
+}
