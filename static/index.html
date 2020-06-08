@@ -51,7 +51,7 @@
             function psClicked() {
               windowsOn = false;
               xboxOn = false;
-              playstationOn = false;
+              playstationOn = true;
               document.querySelector('.fa-windows').style.color = "#777777";
               document.querySelector('.fa-xbox').style.color = "#777777";
               document.querySelector('.fa-playstation').style.color = "#222222";
@@ -59,7 +59,7 @@
             }
           </script>
         </div>
-        <input type="text" name="" id="name-input" placeholder=" Your Gamertag">
+        <input type="text" name="" id="name-input" placeholder="Your Gamertag">
         <button id='submit-btn'>Submit</button>
       </div>
       <script>
@@ -77,8 +77,10 @@
                 if (playstationOn) {
                   platformInput = "psn";
                 }
-                let nameInput = document.getElementById('name-input').value;
-
+                let nameInput = document.getElementById('name-input').value.trim();
+                if (nameInput.length == 0) {
+                  document.querySelector('.stat-wrapper').innerHTML = "No Name Input";
+                }
                 function queryApis(queryplatformInput, querynameInput) {
                     const postsPromise = fetch('https://apex-legends-tracker-api.herokuapp.com/', {
                         method: 'GET',
@@ -97,13 +99,25 @@
                       let statValues = Object.values(data);
 
 
+
+
                       for (let i = 0; i < Object.keys(data).length; i++) {
                         const stat = document.createElement("div")
                         stat.className = "stat";
 
-                        stat.innerHTML = "" + statKeys[i] + ": " + statValues[i];
+                        if (statKeys[0] == "0" && statValues[0] == "U") {
+                          console.log('The user wasn\'t found');
+                          stat.innerHTML = "The user was not found"
 
-                        statWrapper.appendChild(stat)
+                          statWrapper.appendChild(stat)
+                          break;
+                        }
+                        else {
+
+                          stat.innerHTML = "" + statKeys[i] + ": " + statValues[i];
+
+                          statWrapper.appendChild(stat)
+                        }
                       }
                     
                     })
