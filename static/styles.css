@@ -3,7 +3,49 @@
     padding: 0;
 }
 
-.main-container {
-
+.header {
+    height: 150px;
+    background-image: url(images/Apex-Legends_Header.png);
+    background-position: center;
 }
 
+.header img {
+    max-width: 200px;
+    min-width: 200px;
+    width: 20%;
+}
+
+.main-page-container {
+    height: 500px;
+    background-color: #484848;
+}
+
+.searchinfo {
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#name-input {
+    height: 30px;
+    width: 200px;
+    border-radius: 5px;
+    border: 0;
+}
+
+#submit-btn {
+    width: 50px;
+    border-radius: 10px;
+    background-color: grey;
+    border: 0;
+}
+
+.fab {
+    font-size: 1.4em;
+    padding: 5px;
+    color: #777777;
+}
+
+.fab:hover {
+    cursor: pointer;
+}
